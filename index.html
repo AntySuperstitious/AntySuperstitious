@@ -1,1 +1,114 @@
-<hallo>world</hallo>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AntySuperstitious</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #f5f5f5;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3em;
+      color: #00ffe1;
+      text-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffee, 0 0 30px #00ffee;
+      }
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-top: 1em;
+      max-width: 650px;
+      line-height: 1.8;
+      color: #dddddd;
+    }
+
+    .email {
+      margin-top: 2em;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #00ffe1;
+      padding: 0.75em 1.5em;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ffe1;
+      transition: transform 0.3s ease;
+    }
+
+    .email:hover {
+      transform: scale(1.05);
+    }
+
+    a {
+      color: #00ffe1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 12px;
+      margin-top: 2em;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+
+    footer {
+      margin-top: 3em;
+      font-size: 0.85em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AntySuperstitious</h1>
+
+  <p>
+    A voice of reason against the darkness of superstition.  
+    We promote science, facts, and freedom from fear-based belief systems.  
+    Awareness is the first step toward liberation.
+  </p>
+
+  <div class="email">
+    Contact: <a href="mailto:anty.superstitious@gmail.com">anty.superstitious@gmail.com</a>
+  </div>
+
+  <!-- Online image (free to use and relevant) -->
+  <img src="https://images.unsplash.com/photo-1618336753972-71922e727acb?auto=format&fit=crop&w=900&q=80" alt="Light over darkness">
+
+  <footer>
+    &copy; 2025 AntySuperstitious • All rights reserved.
+  </footer>
+
+</body>
+</html>
