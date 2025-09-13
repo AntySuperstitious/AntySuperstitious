@@ -1,136 +1,241 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+
+<html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <title>AntySuperstitious</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <!-- styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AntySuperstitious — টেক্সট পোস্ট</title>
+  <meta name="description" content="একটি সুন্দর ও ক্লিয়ার টেক্সট পোস্ট পেজ — লিখুন, প্রিভিউ দেখুন ও সেভ করুন।" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --bg:#0b1020;--card:#0f1724;--muted:#9fb0c8;--accent:#ffd87a;--accent-2:#6fe3ff;--glass:rgba(255,255,255,0.03)
     }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family: 'Noto Sans Bengali', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;color:#e6f3ff;background:linear-gradient(180deg,#06121a 0%, #081427 60%)}
+    .wrap{max-width:980px;margin:28px auto;padding:20px}header{Display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo svg{filter:drop-shadow(0 6px 18px rgba(2,8,23,0.6))}
+h1{margin:0;font-size:20px}
+p.lead{margin:0;color:var(--muted);font-size:13px}
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      font-family: 'Montserrat', sans-serif;
-      color: #f5f5f5;
-      padding: 2rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+main{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 30px rgba(2,8,23,0.6)}
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.8rem;
-      color: #00ffe1;
-      text-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1;
-      animation: glow 2s ease-in-out infinite alternate;
-      margin-bottom: 1rem;
-    }
+/* editor */
+.editor{display:flex;flex-direction:column;gap:12px}
+input[type=text]{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+textarea{width:100%;min-height:160px;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;resize:vertical}
+.row{display:flex;gap:8px;align-items:center}
+.btn{background:var(--accent);border:none;padding:8px 12px;border-radius:10px;color:#05222a;cursor:pointer;font-weight:600}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+.muted{color:var(--muted)}
 
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1;
-      }
-      to {
-        text-shadow: 0 0 20px #00ffee, 0 0 30px #00ffee;
-      }
-    }
+/* posts list */
+.posts{display:grid;gap:12px}
+.post{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
+.post h3{margin:0;font-size:16px}
+.meta{font-size:12px;color:var(--muted);margin-bottom:8px}
+.body{color:#dff0ff;line-height:1.6}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.tag{font-size:12px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);color:var(--muted)}
 
-    p {
-      font-size: 1.15rem;
-      line-height: 1.7;
-      max-width: 750px;
-      margin-bottom: 2rem;
-      color: #dddddd;
-    }
+/* preview */
+.preview{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));padding:12px;border-radius:10px;border:1px dashed rgba(255,255,255,0.03)}
 
-    .email {
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #00ffe1;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ffe1;
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease;
-    }
+footer{margin-top:18px;color:var(--muted);text-align:center}
 
-    .email:hover {
-      transform: scale(1.05);
-    }
+@media (max-width:920px){main{grid-template-columns:1fr} .right-side{order:2}}
 
-    a {
-      color: #00ffe1;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-      margin-bottom: 2rem;
-    }
-
-    footer {
-      font-size: 0.85rem;
-      color: #888;
-      margin-top: auto;
-      padding-bottom: 1rem;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-      .email {
-        padding: 0.6rem 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      p {
-        font-size: 0.95rem;
-      }
-    }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="6" fill="#051b23"/>
+          <path d="M6 14s2-4 6-4 6 4 6 4" stroke="#ffd87a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 4v6" stroke="#6fe3ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>AntySuperstitious — টেক্সট পোস্ট</h1>
+        <p class="lead">লিখুন আপনার কাহিনী, যুক্তি বা তথ্য — সুন্দরভাবে প্রকাশ করুন।</p>
+      </div>
+    </header><main>
+  <section>
+    <div class="card editor">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <strong>নতুন পোস্ট</strong>
+          <div class="muted" style="font-size:13px">শিরোনাম, কন্টেন্ট ও ট্যাগ পূর্ণ করে সাবমিট করুন</div>
+        </div>
+        <div class="muted">স্থানীয় (LocalStorage) সেভ — পরে আপনি এটি সার্ভারে সংযুক্ত করতে পারবেন</div>
+      </div>
 
-  <h1>AntySuperstitious</h1>
+      <input id="title" type="text" placeholder="শিরোনাম লিখুন..." />
+      <input id="author" type="text" placeholder="লেখকের নাম (ঐচ্ছিক)" />
+      <textarea id="content" placeholder="আপনার লেখা এখানে লিখুন..."></textarea>
+      <input id="tags" type="text" placeholder="ট্যাগ: কমা দিয়ে আলাদা করুন (উদাহরণ: বিজ্ঞান, ব্যক্তিগত)" />
 
-  <p>
-    A voice of reason against the darkness of superstition.  
-    We promote science, facts, and freedom from fear-based belief systems.  
-    Awareness is the first step toward liberation.
-  </p>
+      <div class="row">
+        <button class="btn" id="saveBtn">সেভ ও প্রকাশ করুন</button>
+        <button class="btn ghost" id="previewBtn">প্রিভিউ দেখুন</button>
+        <button class="btn ghost" id="clearBtn">ক্লিয়ার</button>
+      </div>
 
-  <div class="email">
-    Contact: <a href="mailto:anty.superstitious@gmail.com">anty.superstitious@gmail.com</a>
-  </div>
+      <div id="message" class="muted" style="margin-top:6px"></div>
 
-  <!-- Clean and license-free image -->
-  <img src="https://images.unsplash.com/photo-1618336753972-71922e727acb?auto=format&fit=crop&w=900&q=80" alt="Light defeating darkness">
+      <div id="previewArea" class="preview" style="display:none;margin-top:10px"></div>
+    </div>
 
-  <footer>
-    &copy; 2025 AntySuperstitious • All rights reserved.
-  </footer>
+    <div style="height:12px"></div>
 
-</body>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <strong>সর্বশেষ পোস্ট</strong>
+        <div class="muted"><span id="count">0</span> পোস্ট</div>
+      </div>
+      <div class="posts" id="posts"></div>
+    </div>
+  </section>
+
+  <aside class="right-side">
+    <div class="card">
+      <strong>শর্ট টিপস</strong>
+      <ul style="color:var(--muted);margin:8px 0 0 18px">
+        <li>সোজা শুভাকাঙ্ক্ষী ভাষা ব্যবহার করুন — পাঠক সহজে বুঝবে</li>
+        <li>উদাহরণ দিন — বাস্তব ঘটনা বেশি প্রভাব ফেলে</li>
+        <li>ট্যাগ ব্যবহার করুন — সন্ধান সহজ হয়</li>
+      </ul>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="card">
+      <strong>ট্যাগ ক্লাউড</strong>
+      <div id="tagCloud" class="tags" style="margin-top:10px"></div>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="card">
+      <strong>এটি কিভাবে কাজ করে?</strong>
+      <p class="muted" style="margin-top:8px">এই পেজটি লোকালভাবে আপনার ব্রাউজারে পোস্টগুলো সেভ করে। আপনি চাইলে আমি এটিকে Firebase/Supabase-এ সংযুক্ত করে সার্ভার-সাইড পাবলিশ সিস্টেম বানিয়ে দিতে পারি।</p>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  © <span id="yr"></span> AntySuperstitious — যোগাযোগ: anty.superstitious@gmail.com
+</footer>
+
+  </div>  <script>
+    // Simple local storage-based post system
+    const KEY = 'antysp_textposts_v1';
+    function id(){return 'p_'+Math.random().toString(36).slice(2,9)}
+
+    function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return []}}
+    function save(list){localStorage.setItem(KEY, JSON.stringify(list))}
+
+    // DOM
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
+    const content = document.getElementById('content');
+    const tags = document.getElementById('tags');
+    const saveBtn = document.getElementById('saveBtn');
+    const previewBtn = document.getElementById('previewBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const postsEl = document.getElementById('posts');
+    const msg = document.getElementById('message');
+    const previewArea = document.getElementById('previewArea');
+    const tagCloud = document.getElementById('tagCloud');
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    function render(){
+      const list = load().slice().sort((a,b)=>b.created-a.created);
+      postsEl.innerHTML = '';
+      if(!list.length){postsEl.innerHTML='<div class="muted">কোনো পোস্ট পাওয়া যায়নি। প্রথম পোস্ট করুন!</div>'}
+      list.forEach(p=>{
+        const el = document.createElement('div'); el.className='post';
+        const dt = new Date(p.created);
+        el.innerHTML = `
+          <h3>${escape(p.title)}</h3>
+          <div class="meta">${escape(p.author||'অজানা')} • ${dt.toLocaleDateString('bn-BD')}</div>
+          <div class="body">${formatText(p.content)}</div>
+          <div class="tags">${(p.tags||[]).map(t=>`<span class="tag">${escape(t)}</span>`).join('')}</div>
+          <div style="margin-top:8px;display:flex;gap:8px">
+            <button class="btn ghost" data-id="${p.id}" data-act="edit">Edit</button>
+            <button class="btn ghost" data-id="${p.id}" data-act="del">Delete</button>
+            <button class="btn ghost" data-id="${p.id}" data-act="share">Copy Link</button>
+          </div>
+        `;
+        postsEl.appendChild(el);
+      })
+      document.getElementById('count').textContent = list.length;
+      renderTags();
+    }
+
+    function escape(s){return (s||'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+    function formatText(t){const safe = escape(t);return safe.split('\n\n').map(p=>'<p>'+p.replace(/\n/g,'<br>')+'</p>').join('')}
+
+    function renderTags(){
+      const list = load(); const map = {};
+      list.forEach(p=> (p.tags||[]).forEach(t=>{const k=t.trim().toLowerCase(); if(!k) return; map[k]=(map[k]||0)+1}));
+      const keys = Object.keys(map).sort((a,b)=>map[b]-map[a]);
+      tagCloud.innerHTML = keys.slice(0,12).map(k=>`<button class="tag" data-tag="${k}">${k} (${map[k]})</button>`).join('');
+      tagCloud.querySelectorAll('.tag').forEach(btn=>btn.addEventListener('click',()=>{
+        const q=btn.dataset.tag; filterByTag(q);
+      }))
+    }
+
+    function filterByTag(t){
+      const list = load().filter(p=>(p.tags||[]).map(x=>x.toLowerCase()).includes(t));
+      postsEl.innerHTML = '';
+      list.forEach(p=>{
+        const el = document.createElement('div'); el.className='post';
+        el.innerHTML = `<h3>${escape(p.title)}</h3><div class="meta">${escape(p.author||'অজানা')}</div><div class="body">${formatText(p.content)}</div>`;
+        postsEl.appendChild(el);
+      });
+      document.getElementById('count').textContent = list.length+' (filtered)';
+    }
+
+    saveBtn.addEventListener('click',()=>{
+      const t = title.value.trim(); const c = content.value.trim();
+      if(!t||!c){msg.textContent='শিরোনাম ও কন্টেন্ট প্রয়োজন।'; return}
+      const list = load();
+      const item = {id:id(),title:t,author:author.value.trim(),content:c,tags:tags.value.split(',').map(x=>x.trim()).filter(Boolean),created:Date.now()};
+      list.push(item); save(list); render();
+      msg.textContent='পোস্ট সফলভাবে সেভ হয়েছে।';
+      setTimeout(()=>msg.textContent='',3000);
+      clearForm();
+    })
+
+    previewBtn.addEventListener('click',()=>{
+      const t = title.value.trim(); const c = content.value.trim();
+      if(!t && !c){previewArea.style.display='none'; return}
+      previewArea.style.display='block';
+      previewArea.innerHTML = `<h3>${escape(t||' (শিরোনাম নেই)')}</h3><div class="meta">${escape(author.value||'অজানা')}</div><div class="body">${formatText(c||'')}</div>`;
+      window.scrollTo({top: previewArea.getBoundingClientRect().top + window.scrollY - 80, behavior:'smooth'});
+    })
+
+    clearBtn.addEventListener('click',()=>{clearForm();previewArea.style.display='none';})
+    function clearForm(){title.value='';author.value='';content.value='';tags.value='';}
+
+    postsEl.addEventListener('click',e=>{
+      const btn = e.target.closest('button'); if(!btn) return;
+      const act = btn.dataset.act; const idv = btn.dataset.id;
+      if(act==='del'){if(confirm('মুছে ফেলবেন?')){let list=load();list=list.filter(x=>x.id!==idv);save(list);render();}}
+      if(act==='edit'){const list=load();const p=list.find(x=>x.id===idv); if(p){title.value=p.title;author.value=p.author;content.value=p.content;tags.value=(p.tags||[]).join(','); window.scrollTo({top:0,behavior:'smooth'})}}
+      if(act==='share'){const url = location.href.split('#')[0] + '#post=' + idv; navigator.clipboard && navigator.clipboard.writeText(url).then(()=>alert('লিংক কপি হয়েছে: ' + url)).catch(()=>alert('কপি ব্যর্থ — এই লিংক ব্যবহার করুন: ' + url))}
+    })
+
+    // handle direct link to a post
+    function openLinked(){const h = location.hash; if(!h) return; const match = h.match(/post=(p_[a-z0-9]+)/); if(match){const idv=match[1]; const list=load(); const p=list.find(x=>x.id===idv); if(p){postsEl.innerHTML=''; const el = document.createElement('div'); el.className='post'; el.innerHTML = `<h3>${escape(p.title)}</h3><div class=\"meta\">${escape(p.author||'অজানা')} • ${new Date(p.created).toLocaleDateString('bn-BD')}</div><div class=\"body\">${formatText(p.content)}</div><div class=\"tags\">${(p.tags||[]).map(t=>`<span class=\"tag\">${escape(t)}</span>`).join('')}</div>`; postsEl.appendChild(el); document.getElementById('count').textContent='1 (linked)';}
+    }}
+
+    // initial
+    render(); openLinked();
+  </script></body>
 </html>
