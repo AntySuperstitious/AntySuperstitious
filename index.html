@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -8,57 +7,124 @@
   <style>
     :root{--bg:#f7f9fb;--card:#ffffff;--accent:#0b63c6;--muted:#6b7280}
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:var(--bg);color:#111}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:var(--bg);
+      color:#111;
+    }
     .container{max-width:900px;margin:48px auto;padding:24px}
-    .card{background:var(--card);border-radius:14px;box-shadow:0 8px 30px rgba(15,23,42,0.06);overflow:hidden;display:flex;gap:20px;align-items:center;padding:24px}
-    .avatar{flex:0 0 160px}
-    .avatar img{width:160px;height:160px;border-radius:12px;object-fit:cover;border:4px solid #fff;box-shadow:0 6px 18px rgba(2,6,23,0.08)}
+    .card{
+      background:var(--card);
+      border-radius:14px;
+      box-shadow:0 8px 30px rgba(15,23,42,0.06);
+      overflow:hidden;
+      display:flex;
+      gap:20px;
+      align-items:center;
+      padding:24px
+    }
+    .avatar{flex:0 0 160px;text-align:center}
+    .avatar img{
+      width:160px;height:160px;
+      border-radius:12px;
+      object-fit:cover;
+      border:4px solid #fff;
+      box-shadow:0 6px 18px rgba(2,6,23,0.08)
+    }
+    .note-img{
+      font-size:12px;
+      color:#374151;
+      margin-top:6px;
+      text-align:center;
+    }
     .info{flex:1}
     h1{margin:0;font-size:24px}
     p{margin:8px 0;color:var(--muted)}
-    .address{background:#f1f5f9;padding:12px;border-radius:8px;margin-top:12px}
-    .footer{margin-top:20px;font-size:13px;color:var(--muted)}
+    .address{
+      background:#f1f5f9;
+      padding:12px;
+      border-radius:8px;
+      margin-top:12px
+    }
+    .footer{
+      margin-top:20px;
+      font-size:13px;
+      color:var(--muted)
+    }
     .actions{margin-top:16px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600
+    }
     .btn-primary{background:var(--accent);color:white}
     .note{font-size:12px;color:#374151;margin-top:10px}
-    @media (max-width:640px){.card{flex-direction:column;align-items:flex-start}.avatar{flex:0 0 auto}}
+    @media (max-width:640px){
+      .card{flex-direction:column;align-items:flex-start}
+      .avatar{flex:0 0 auto;width:100%;text-align:left}
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="card" role="region" aria-label="credit card for Suvonkor Bignath">
+
       <div class="avatar">
-        <!-- Replace `your-photo.jpg` with your actual image filename or a data URL. -->
-        <img id="profileImage" src=\"https://raw.githubusercontent.com/AntySuperstitious/AntySuperstitious/main/file_0000000082b461faac905295b9200241.png\" alt="Photo of Suvonkor Bignath" onerror="this.style.opacity=0.12;this.alt='No image provided'" />
+        <img id="profileImage"
+          src="https://raw.githubusercontent.com/AntySuperstitious/AntySuperstitious/main/file_0000000082b461faac905295b9200241.png"
+          alt="Animated representation of Suvonkor Bignath"
+          onerror="this.style.opacity=0.12;this.alt='No image provided'" />
+
+        <div class="note-img">
+          (I look like this picture — this is not my real photo.<br>
+          It is an animated image that resembles me.)
+        </div>
       </div>
+
       <div class="info">
         <h1>Suvonkor Bignath</h1>
         <p class="muted">Resident — West Bengal</p>
+
         <div class="address" aria-label="address">
           <strong>Address</strong>
           <div>West Bengal, Cooch Behar, 736134</div>
           <div>Bhetagury</div>
-        <div><strong>Email:</strong> anty.spirituality@outlook.com</div>
+          <div><strong>Email:</strong> anty.spirituality@outlook.com</div>
         </div>
-        <div class="actions"">
+
+        <div class="actions">
           <a class="btn btn-primary" href="#" onclick="downloadHTML();return false;">Download this page (HTML)</a>
           <a class="btn" href="#" onclick="print();return false;">Print</a>
         </div>
-        <div class="note">Tip: to show your image here, replace <code>your-photo.jpg</code> with your image filename or a base64 data URL. If you want, upload the image and I can embed it for you.</div>
+
+        <div class="note">
+          Tip: You can upload any photo and I can embed it directly into the page.
+        </div>
       </div>
+
     </div>
-    <div class="footer">© <span id="year"></span> Suvonkor Bignath — Credit page</div>
-  </div>  <script>
+
+    <div class="footer">© <span id="year"></span> Suvonkor Bignath — Credit Page</div>
+  </div>
+
+  <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
     function downloadHTML(){
       const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url; a.download = 'suvonkor-bignath-credit.html';
-      document.body.appendChild(a); a.click(); a.remove();
+      a.href = url;
+      a.download = 'suvonkor-bignath-credit.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
       URL.revokeObjectURL(url);
     }
-  </script></body>
+  </script>
+</body>
 </html>
